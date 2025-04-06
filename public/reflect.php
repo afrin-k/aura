@@ -9,7 +9,7 @@
     <div id="header-container"></div>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        fetch("header.html")
+        fetch("header.php")
           .then((response) => response.text())
           .then((data) => {
             document.getElementById("header-container").innerHTML = data;
@@ -31,20 +31,17 @@
       </div>
     </div> 
     <script>
-      fetch("https://api.allorigins.win/raw?url=https://zenquotes.io/api/random")
-      .then((response) => response.json())
-      .then((data) => {
-      const quote = data[0].q;
-      const author = data[0].a;
-      document.getElementById("quote-text").innerText = `“${quote}”`;
-      document.getElementById("quote-author").innerText = `— ${author}`;
-     })
-      .catch((error) => {
-      document.getElementById("quote-text").innerText =
-      "Could not load quote. Try again later.";
-      console.error("Error fetching quote:", error);
-    });
-    </script>       
+      fetch("quotes.php")
+      .then(response => response.json())
+      .then(data => {
+      document.getElementById("quote-text").innerText = `“${data.q}”`;
+      document.getElementById("quote-author").innerText = `— ${data.a}`;
+      })
+      .catch(error => {
+      document.getElementById("quote-text").innerText = "Could not load quote. Try again later.";
+      console.error("Quote loading error:", error);
+      });
+</script>       
     <div class="gratitude-section">
       <h1>GRATITUDE</h1>
       <h4>A GROWING LIST OF APPRECIATION</h4>
@@ -88,7 +85,7 @@
       }
 
       document.addEventListener("DOMContentLoaded", function () {
-        fetch("footer.html")
+        fetch("footer.php")
           .then((response) => response.text())
           .then((data) => {
             document.getElementById("footer-container").innerHTML = data;

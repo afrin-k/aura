@@ -105,13 +105,13 @@
       </div>
     </div>
     <div class="line2"></div>
-    <div class="contactus">
+    <section id="contact"  class="contact">
       <h1>CONTACT US</h1>
       <div class="contactbutton">
         <button class="button5">Enter Your Email Here</button>
         <button class="button5">Contact us now</button>
       </div>
-    </div>
+      </section>
     <div id="footer-container"></div>
     <script>
       document.addEventListener("DOMContentLoaded", function () {

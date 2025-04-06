@@ -2,24 +2,24 @@
   <img src="../assets/img/logo.jpg" alt="" />
   <ul class="header-ul">
     <li class="nav-item">
-      <a href="./home.html" class="nav-link">Home</a>
+      <a href="./home.php" class="nav-link">Home</a>
     </li>
     <li class="nav-item">
-      <a href="./home.html#welcome" class="nav-link">About</a>
+      <a href="./home.php#welcome" class="nav-link">About</a>
     </li>
     <li class="nav-item">
-      <a href="./breathe.html" class="nav-link">Breathe</a>
+      <a href="./breathe.php" class="nav-link">Breathe</a>
     </li>
     <li class="nav-item">
-      <a href="./reflect.html" class="nav-link">Reflect</a>
+      <a href="./reflect.php" class="nav-link">Reflect</a>
     </li>
     <li class="nav-item">
-      <a href="./game.html" class="nav-link">Play</a>
+      <a href="./game.php" class="nav-link">Play</a>
     </li>
     <li class="nav-item">
-      <a href="./emergency.html" class="nav-link">Emergency</a>
+      <a href="./emergency.php" class="nav-link">Emergency</a>
     </li>
-    <li class="nav-item"><a href="#" class="nav-link">Contact</a>
+    <li class="nav-item"><a href="./home.php#contact" class="nav-link">Contact</a>
     </li>
   </ul>
 </header>
