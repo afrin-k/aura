@@ -1,158 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doodle Game</title>
-    <style>
-        body {
-            text-align: center;
+  <meta charset="UTF-8">
+  <title>Doodle Game</title>
+  <style>
+    body {
+      text-align: center;
             font-family: Arial, sans-serif;
             background-color: whitesmoke;
-        }
-        .toolbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 620px;
-            margin: 10px auto;
-            padding: 10px 0;
-            border: 2px solid #394B7E;
-            border-radius: 5px;
-        }
-        .color-tools, .eraser-tool {
-            margin-left: 10px;
-            display: flex;
-            gap: 10px;
-        }
-        .color-btn {
-            width: 30px;
-            height: 30px;
-            border: none;
-            cursor: pointer;
-        }
-        .eraser {
-            margin: 10px;
-            padding: 10px 20px;
-            font-size: 18px;
-            cursor: pointer;
-            border: 1px solid whitesmoke;
-            border-radius: 2px;
-            background-color: #516cb3;
-            color: whitesmoke;
-            text-transform: uppercase;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        }
-        .eraser:hover{
-            background-color: white;
+
+    }
+
+    h1 {
+      margin-bottom: 5px;
+            font-family: 'Times New Roman', Times, serif;
             color: #394B7E;
-            border: 1px solid #394B7E;
-        }
-        .container {
-            display: flex;
-            justify-content: center;
-            position: relative;
-        }
-        canvas {
-            border: 2px solid #394B7E;
-            border-radius: 5px;
-            cursor: crosshair;
-            background-color: white;
-        }
-        .reset-tool {
-            margin-top: 10px;
-        }
-        .reset {
-            margin: 10px;
-            padding: 10px 20px;
-            font-size: 18px;
-            cursor: pointer;
-            border: 1px solid white;
-            border-radius: 2px;
-            background-color: #516cb3;
-            color: white;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            text-transform: uppercase;
-        }
-        .reset:hover{
-            background-color: white;
-            color: #394B7E;
-            border: 1px solid #394B7E;
-        }
-        p{
-            font-size: 16px;
+
+    }
+
+    p {
+      font-size: 16px;
             text-transform: lowercase;
             color: #394B7E;
             margin-bottom: 20px;
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        }
-        h1 {
-            margin-bottom: 5px;
-            font-family: 'Times New Roman', Times, serif;
-            color: #394B7E;
-        }
-    </style>
+
+    }
+
+    .toolbar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 10px;
+      gap: 10px;
+      border: 2px solid #3e4c7e;
+      padding: 10px;
+      background-color: white;
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 6px;
+    }
+
+    .color {
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      border: 1px solid #999;
+    }
+
+    #eraser {
+      padding: 8px 16px;
+      background-color: #3e4c7e;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    #canvas {
+      border: 2px solid #3e4c7e;
+      background-color: white;
+      cursor: crosshair;
+    }
+
+    #reset {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #3e4c7e;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    /* Sidebar Ads */
+    #ad-sidebar {
+      position: absolute;
+      bottom: 1%;
+      right: 0;
+      transform: translateY(-50%);
+      padding: 8px;
+      z-index: 9999;
+      width: 300px;
+      height: 300px;
+    }
+
+    #ad-sidebar img {
+      width: 150px;
+      height: 100%;
+      display: block;
+    }
+  </style>
 </head>
 <body>
-    <h1>DOODLE GAME</h1>
-    <p> Drawing activates the brain’s reward pathways, lowering cortisol levels and enhancing mindfulness.</p>
-    <div class="toolbar">
-        <div class="color-tools">
-            <button class="color-btn" style="background-color: rgb(216, 167, 212);" onclick="changeColor('pink')"></button>
-            <button class="color-btn" style="background-color: rgb(111, 110, 120);" onclick="changeColor('grey')"></button>
-            <button class="color-btn" style="background-color: rgb(16, 16, 21);" onclick="changeColor('black')"></button>
-        </div>
-        <div class="eraser-tool">
-            <button class="eraser" onclick="changeColor('white')">Eraser</button>
-        </div>
-    </div>
-    <div class="container">
-        <canvas id="doodleCanvas" width="620" height="400"></canvas>
-    </div>
-    <div class="reset-tool">
-        <button class="reset" onclick="clearCanvas()">Reset</button>
-    </div>
-    <script>
-        const canvas = document.getElementById("doodleCanvas");
-        const ctx = canvas.getContext("2d");
-        let drawing = false;
-        let currentColor = "black";
-        let lineWidth = 5;
 
-        function changeColor(color) {
-            currentColor = color;
-            lineWidth = color === "white" ? 20 : 5; // Increase size for eraser
-        }
+  <h1>DOODLE GAME</h1>
+  <p>drawing activates the brain’s reward pathways, lowering cortisol levels and enhancing mindfulness.</p>
 
-        function startDrawing(event) {
-            drawing = true;
-            draw(event);
-        }
+  <div class="toolbar">
+    <div class="color" style="background-color: #d59ad2;"></div>
+    <div class="color" style="background-color: #666;"></div>
+    <div class="color" style="background-color: #222;"></div>
+    <button id="eraser">ERASER</button>
+  </div>
 
-        function stopDrawing() {
-            drawing = false;
-            ctx.beginPath();
-        }
+  <canvas id="canvas" width="800" height="400"></canvas><br>
+  <button id="reset">RESET</button>
 
-        function draw(event) {
-            if (!drawing) return;
-            ctx.lineWidth = lineWidth;
-            ctx.lineCap = "round";
-            ctx.strokeStyle = currentColor;
-            
-            ctx.lineTo(event.offsetX, event.offsetY);
-            ctx.stroke();
-            ctx.beginPath();
-            ctx.moveTo(event.offsetX, event.offsetY);
-        }
+  <!-- Sidebar Ad -->
+  <div id="ad-sidebar">
+    <a href="https://example.com" target="_blank">
+      <img id="rotating-ad" src="ad1.jpg" alt="Ad" />
+    </a>
+  </div>
 
-        function clearCanvas() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-        }
+  <script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    let drawing = false;
+    let currentColor = '#000000';
+    const eraser = document.getElementById('eraser');
 
-        canvas.addEventListener("mousedown", startDrawing);
-        canvas.addEventListener("mouseup", stopDrawing);
-        canvas.addEventListener("mousemove", draw);
-    </script>
+    canvas.addEventListener('mousedown', () => drawing = true);
+    canvas.addEventListener('mouseup', () => drawing = false);
+    canvas.addEventListener('mouseout', () => drawing = false);
+    canvas.addEventListener('mousemove', draw);
+
+    function draw(e) {
+      if (!drawing) return;
+      ctx.lineWidth = 4;
+      ctx.lineCap = 'round';
+      ctx.strokeStyle = currentColor;
+
+      const rect = canvas.getBoundingClientRect();
+      ctx.lineTo(e.clientX - rect.left, e.clientY - rect.top);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(e.clientX - rect.left, e.clientY - rect.top);
+    }
+
+    // Color selection
+    const colors = document.querySelectorAll('.color');
+    colors.forEach(color => {
+      color.addEventListener('click', () => {
+        currentColor = color.style.backgroundColor;
+      });
+    });
+
+    // Eraser
+    eraser.addEventListener('click', () => {
+      currentColor = '#ffffff'; // Canvas background color
+    });
+
+    // Reset
+    document.getElementById('reset').addEventListener('click', () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.beginPath();
+    });
+
+    // Ad Rotator
+    const ads = [
+      { src: "../assets/img/gucciad.jpg", link: "https://www.google.com/search?q=gucci+ads" },
+      { src: "../assets/img/laysad.jpg", link: "https://www.google.com/search?q=lays+chips+ads" },
+      { src: "../assets/img/slicead.jpg", link: "https://www.google.com/search?q=slice+juice" }
+    ];
+
+    let currentAdIndex = 0;
+    const adImage = document.getElementById("rotating-ad");
+    const adLink = adImage.parentElement;
+
+    setInterval(() => {
+      currentAdIndex = (currentAdIndex + 1) % ads.length;
+      adImage.src = ads[currentAdIndex].src;
+      adLink.href = ads[currentAdIndex].link;
+    }, 3000);
+  </script>
+
 </body>
 </html>

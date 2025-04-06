@@ -10,7 +10,7 @@
     <div id="header-container"></div>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        fetch("header.html")
+        fetch("header.php")
           .then((response) => response.text())
           .then((data) => {
             document.getElementById("header-container").innerHTML = data;
@@ -99,7 +99,7 @@
       <div id="footer-container"></div>
       <script>
         document.addEventListener("DOMContentLoaded", function () {
-          fetch("footer.html")
+          fetch("footer.php")
             .then((response) => response.text())
             .then((data) => {
               document.getElementById("footer-container").innerHTML = data;

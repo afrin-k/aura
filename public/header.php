@@ -14,12 +14,14 @@
       <a href="./reflect.php" class="nav-link">Reflect</a>
     </li>
     <li class="nav-item">
-      <a href="./game.php" class="nav-link">Play</a>
+      <a href="./play.php" class="nav-link">Play</a>
     </li>
     <li class="nav-item">
       <a href="./emergency.php" class="nav-link">Emergency</a>
     </li>
     <li class="nav-item"><a href="./home.php#contact" class="nav-link">Contact</a>
+    </li>
+    <li class="nav-item"><a href="./logout.php" class="nav-link">Log Out</a>
     </li>
   </ul>
 </header>
